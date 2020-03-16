@@ -10,7 +10,13 @@ app.use(express.json());
 
 app.use(routes)
 
-mongoose.connect("mongodb://localhost/googlebooksdb")
+mongoose.connect("mongodb://localhost/googlebooksdb");
+
+mongoose.connection.on("open", ()=>{
+    console.log("Connection made")
+}).on("error", (error)=>{
+    console.log("Connection error:" + error)
+})
 
 app.listen(PORT, function() {
     console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
