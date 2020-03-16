@@ -17,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/abayindir1/GoogleBooks/issues"
   },
-  "homepage": "https://github.com/abayindir1/GoogleBooks#readme"
+  "homepage": "https://github.com/abayindir1/GoogleBooks#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.4"
+  }
 }
