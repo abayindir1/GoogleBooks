@@ -1,0 +1,9 @@
+.booksHeader{
+    background-image: url("../../images/books.png");
+    padding: 3%;
+    background-attachment: fixed;
+    background-position: 0 0;
+    background-position: initial;
+    min-height: 16rem;
+    width: 100%;
+}
