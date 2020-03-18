@@ -16,14 +16,16 @@ class Saved extends Component {
 
 getSavedBooks= () =>{
   API.getSavedBooks()
-        .then(res => this.setState({ saved: res.data }))
+        .then(res => {
+          this.setState({ saved: res.data })
+        })
         .catch(err => console.log(err))
 }
 
 
 handleDeleteButton = id => {
   API.deleteBook(id)
-      .then(res => this.getSavedBooks())
+      .then(()=> this.getSavedBooks())
       .catch(err => console.log(err))
 }
 
@@ -37,13 +39,13 @@ handleDeleteButton = id => {
         {this.state.saved.map(book=>{
           return(
           <SavedBooks
-          key={book.id}
-          title={book.volumeInfo.title}
-          author={book.volumeInfo.authors.join(", ")}
-          image={book.volumeInfo.imageLinks.thumbnail} 
-          description={book.volumeInfo.description}
-          link={book.volumeInfo.infoLink}
-          click={this.handleDeleteButton}
+          key={book._id}
+          title={book.title}
+          author={book.authors.join(", ")}
+          image={book.thumbnail} 
+          description={book.description}
+          link={book.infoLink}
+          click={()=>this.handleDeleteButton(book._id)}
           />
           )
         })}
