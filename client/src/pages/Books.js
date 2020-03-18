@@ -28,18 +28,26 @@ class Books extends Component {
         this.setState({
           books: res.data.items
         })
+        console.log(this.state.books)
+      }).catch(() =>
+      this.setState({
+        books: []
       })
-  }
+    );
 
-  handleSave = (event) => {
-    console.log(event.target)
-    event.preventDefault();
-    let saved = this.state.books.filter(book => book.id === event.target.id)
+    }
     
-    // console.log(this.state.books.id)
-    // console.log(saved)
-    API.saveBook(saved)
-      .then(console.log("saved") )
+    handleSave = id =>{
+    const book = this.state.books.find(book => book.id === id);
+    console.log(book)
+    API.saveBook({
+      googleId: book.id,
+      title: book.volumeInfo.title,
+      link: book.volumeInfo.infoLink,
+      authors: book.volumeInfo.authors,
+      description: book.volumeInfo.description,
+      image: book.volumeInfo.imageLinks.thumbnail
+    }).then(()=> this.handleFormSubmit.bind(this))
   }
 
   render() {
@@ -67,13 +75,13 @@ class Books extends Component {
               <>
                 <Item
                   key={bk.id}
+                  id={bk.id}
                   title={bk.volumeInfo.title}
                   author={bk.volumeInfo.authors}
                   image={bk.volumeInfo.imageLinks.thumbnail}
                   synopsis={bk.volumeInfo.description}
                   link={bk.volumeInfo.infoLink}
-                click ={(event)=>this.handleSave(event)}
-                id={bk.id}
+                  click ={()=>this.handleSave(bk.id)}
                 />
                 <hr />
               </>
@@ -86,3 +94,4 @@ class Books extends Component {
 }
 
 export default Books;
+

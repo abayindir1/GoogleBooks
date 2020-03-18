@@ -11,14 +11,19 @@ class Saved extends Component {
   };
 
   componentDidMount() {
-    API.getSavedBooks()
-        .then(res => this.setState({ savedBooks: res.data }))
+    this.getSavedBooks()
+}
+
+getSavedBooks= () =>{
+  API.getSavedBooks()
+        .then(res => this.setState({ saved: res.data }))
         .catch(err => console.log(err))
 }
 
+
 handleDeleteButton = id => {
   API.deleteBook(id)
-      .then(res => this.componentDidMount())
+      .then(res => this.getSavedBooks())
       .catch(err => console.log(err))
 }
 
@@ -36,7 +41,7 @@ handleDeleteButton = id => {
           title={book.volumeInfo.title}
           author={book.volumeInfo.authors.join(", ")}
           image={book.volumeInfo.imageLinks.thumbnail} 
-          synopsis={book.volumeInfo.description}
+          description={book.volumeInfo.description}
           link={book.volumeInfo.infoLink}
           click={this.handleDeleteButton}
           />
