@@ -1,0 +1,37 @@
+.book{
+    margin: 0 auto;
+    width: 75%;
+    border: solid 5px black;
+    margin-top: 3%;
+    padding: 2%;
+    border-radius: 19px;
+    background-color: brown;
+    color: #ebd5b3;
+}
+.bookTitle{
+    font-family: 'Gentium Book Basic', serif;
+    text-align: center;
+}
+.bookContent{
+    display: flex;
+    align-items: center;
+}
+.bookImage{
+    margin-right: 5%;
+    border: solid 4px black;
+}
+.bookLinks{
+    margin-top: 2%;
+}
+.bookSource{
+    color: wheat;
+    background-color: black;
+    padding: 1%;
+    border: solid wheat;
+}
+.saveButton{
+    background-color: wheat;
+    color: black;
+    border: solid 2px black;
+    padding: 5px;
+}
