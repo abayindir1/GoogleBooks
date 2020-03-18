@@ -8,7 +8,7 @@ function Item (props){
             <h3 className="bookAuthor">{props.author}</h3>
             <div className="bookContent">
             <img src={props.image} alt={props.title} className="bookImage"/>
-            <p className="bookDescription">{props.synopsis}</p>
+            <p className="bookDescription">{props.description}</p>
             </div>
             <div className="bookLinks">
             <a href={props.link} className="bookSource">See the book</a>

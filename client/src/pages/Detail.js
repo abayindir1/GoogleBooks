@@ -18,6 +18,7 @@ getSavedBooks= () =>{
   API.getSavedBooks()
         .then(res => {
           this.setState({ saved: res.data })
+          console.log(res)
         })
         .catch(err => console.log(err))
 }
@@ -42,7 +43,7 @@ handleDeleteButton = id => {
           key={book._id}
           title={book.title}
           author={book.authors.join(", ")}
-          image={book.thumbnail} 
+          image={book.image} 
           description={book.description}
           link={book.infoLink}
           click={()=>this.handleDeleteButton(book._id)}

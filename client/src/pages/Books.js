@@ -79,7 +79,7 @@ class Books extends Component {
                   title={bk.volumeInfo.title}
                   author={bk.volumeInfo.authors}
                   image={bk.volumeInfo.imageLinks.thumbnail}
-                  synopsis={bk.volumeInfo.description}
+                  description={bk.volumeInfo.description}
                   link={bk.volumeInfo.infoLink}
                   click ={()=>this.handleSave(bk.id)}
                 />
